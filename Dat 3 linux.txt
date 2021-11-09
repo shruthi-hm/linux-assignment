@@ -1,0 +1,188 @@
+slide 143
+
+1. echo enter n1
+   read n1
+   echo enter n2
+   read n2
+   sum=`expr $n1 + $n2`
+   echo "the sum= $sum"
+   sub=`expr $n1 - $n2`
+   echo " the subs= $sub"
+   mul= `expr $n1 * $n2`
+   echo " the mul= $mul"
+   div= `expr $n1/ $n2`
+   echo "the div= $div"
+---------------------------------
+2  echo "enter string1"
+   read str1
+   echo "enter string2"
+   read str2
+   expr "banner $str1 $str2"
+-------------------------------------
+3 echo "username"
+   read uname
+   if who -u | grep -q "^$uname"
+  then
+     write $uname
+  else
+     echo "user not logged in"
+----------------------------------------------
+slide 151
+ 1)vi disp.sh
+   echo $2
+   echo $4
+   echo $6
+   echo $8
+   echo $10
+   echo $12
+   :wq
+
+   bash disp.sh 1 2 3 4 5 6 7 8 9 10 11 12
+
+----------------------------------------------
+2) echo "enter args"
+   read s
+   until [ $s = "EOF" ]
+   do
+   echo $a | tr '[:lower:]' '[:upper:]'
+   read s
+   done
+---------------------------------------------------
+3)echo $1
+  echo $2
+  echo $3
+  set 10 100
+  echo $1
+  echo $2
+  echo $3
+----------------------------------------------------
+slide 161
+
+1.echo "Enter 3 numbers"
+  read n1
+  read n2
+  read n3
+  if test $n1 -gt $n2 -a $n1 -gt $n3
+  then
+	 echo "$num1 is biggest"
+  elif test $num2 -gt $n1 -a $n2 -gt $n3
+  then
+	 echo "$n2 is biggest"
+  elif test $num3 -gt $n1 -a $n3 -gt $n2
+  then
+	 echo "$n3 is biggest"
+  else
+	 echo "either 2 numbers are equal or all 3 numbers are equal"
+  fi
+-------------------------------------------------------------------
+2. echo "enter filename"
+   read file
+   if test -s $file
+   then
+	 echo "file exists and is not empty"
+   elif test -f $file
+   then
+	 echo "file exists and is empty"
+   else
+         echo "file does'nt exist"
+   fi
+-----------------------------------------------------------------
+
+3.vi quiz
+  score=0
+  echo "give the correct answer and get points"
+  echo "how many sides does square have?"
+  read a
+  if test $a -eq 4
+  then
+        point=`expr $score + 1`
+  else
+        point=`expr $score + 0`
+  fi
+  echo "how many sides does a pentagon have?"
+  read b
+  if test $b -eq 5
+  then
+	point=`expr $point + 1`
+  else
+	point=`expr $point + 0
+  fi`   
+  echo "the total score is $point"
+-------------------------------------------------------
+
+
+slide 169
+1.echo "enter total num of args required"
+  read N
+  i=1
+  max=0
+  echo "enter numbers"
+  while [ $i -le $N ]
+  do 
+    read num
+  if [ $num -gt $max ]
+   then
+        max=$num
+    fi 
+    i=$((i+1))
+  done
+  echo "the largest num is $num"
+  :wq
+
+  bash large
+------------------------------------------------
+
+2.read a
+  sum=0
+  until [ $a -eq 0 ]
+  do
+	  sum=` expr $sum + $a `
+	  read a
+  done
+  echo $sum
+-------------------------------------------------------
+
+ slide 176
+
+1.read a
+  while [ $a != "EOF" ]
+  do
+	  case $a in
+	          [0-9]*) echo "number";;
+	          [a-z]*) echo "alphabet";;
+	          [A-Z]*) echo "alphabet";;
+	          *) echo "others";;
+	  esac
+	  read a
+   done
+----------------------------------------------------------
+
+2. echo "which is the capital of India?"
+   read a
+   echo $a
+   until [ $a = "Delhi" ]
+   do
+	   read a
+   done
+   echo "$a is correct"
+---------------------------------------------------------------
+3. echo "enter file name"
+   read a
+   echo "enter a filename with path to copy"
+   read b
+   cp $a $b
+   rm $a
+   cat $b
+
+--------------------------------------------------------------------------
+slide 186
+
+1.filename=$1
+echo "Number of words with vowels"
+while read line; do
+echo $line
+less $1 | grep -E [aeiouAEIOU] | wc -w > print.txt
+done < print.txt
+ 
+
+
